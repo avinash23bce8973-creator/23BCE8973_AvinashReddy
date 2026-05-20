@@ -1,0 +1,92 @@
+use vitcampus1;
+
+create table persons(
+id int not null,
+lastname varchar(255) unique not null,
+firstname varchar(255) not null,
+age int
+);
+desc persons;
+
+insert into persons values(101,'K','Avinash',null);
+insert into persons values(101,'A','Raj',19);
+insert into persons values(101,'M','Ram',18);
+select * from persons;
+
+alter table persons add unique (age);
+alter table persons drop constraint age;
+desc persons;
+
+
+create table person(
+id int not null,
+lastname varchar(255) unique not null,
+firstname varchar(255) not null,
+age int not null,
+check(age>=18 and age<=23)
+);
+
+insert into person values(101,'K','Avinash',19);
+insert into person values(101,'M','Ramya',14);
+select * from person;
+
+
+CREATE TABLE Per (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+insert into per values (1,'reddy','rajeev',14);
+alter table Per add check (Age>=18);
+desc per;
+insert into Per values (2, 'Kumar', 'Arun', 20);
+insert into Per values (3, 'Ravi', 'Ajay', 15);
+select * from per;
+
+
+drop table persons;
+create table persons(
+id int not null,
+lastname varchar(255) unique not null,
+firstname varchar(255),
+age int,
+city varchar(255) default 'Coiambatore'
+);
+desc persons;
+
+
+create table product(
+pid int primary key,
+pname varchar(255) not null,
+prefno int not null unique
+);
+desc product;
+
+insert into product values (101,'electronics',1229032);
+select * from product;
+insert into product values (102,'furniture',1243422);
+
+alter table product add primary key(pid);
+alter table product drop primary key;
+
+
+drop table product;
+create table category(
+cid int primary key,
+cname varchar(100) not null
+);
+insert into category values(101,'electronics'),(102,'furniture');
+
+create table product (
+pid int primary key,
+pname varchar(100) not null,
+cid int,
+foreign key (cid) references category(cid)
+);
+desc product;
+
+insert into product values (501,'laptop',101),(502,'tv',101),(503,'chair',102);
+insert into product values (502,'power bank',105);
+select * from product;
