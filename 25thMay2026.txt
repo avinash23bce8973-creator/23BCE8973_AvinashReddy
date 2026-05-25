@@ -33,12 +33,7 @@ config  60.00 KiB
 local   80.00 KiB
 vit      8.00 KiB
 show collections
-Employee
-db.Employee.insert((name:"jaya",department:"IT"))
-SyntaxError: Unexpected token, expected "," (1:24)
-
-> 1 | db.Employee.insert((name:"jaya",department:"IT"))
-    |                         ^
+Employee                      ^
 db.Employee.insert({name:"jaya",department:"IT"})
 DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
 {
